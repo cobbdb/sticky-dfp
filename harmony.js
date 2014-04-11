@@ -5,13 +5,12 @@
 var Harmony = (function () {
     var adUnitCode = '/11347122/dev-test';
     var log = '';
-
-    googletag.cmd.push(function () {
-        googletag.pubads().enableSingleRequest();
-        Harmony.log('System configured.');
-    });
+    var config = [];
 
     return {
+        setConfig: function (cmd) {
+            config.push(cmd);
+        },
         log: function (msg) {
             if (!msg) {
                 console.log(log);
@@ -21,6 +20,10 @@ var Harmony = (function () {
         },
         enableServices: function () {
             googletag.cmd.push(function () {
+                Harmony.log('Applying ' + config.length + ' configurations.');
+                config.forEach(function (cmd) {
+                    cmd();
+                });
                 googletag.enableServices();
                 Harmony.log('DFP services enabled.');
             });

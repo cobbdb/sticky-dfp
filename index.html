@@ -17,6 +17,10 @@
         Harmony.newSlot('LV01', [
             [88, 31]
         ]);
+        Harmony.setConfig(function () {
+            Harmony.log('Setting single request mode.');
+            googletag.pubads().enableSingleRequest();
+        });
         Harmony.enableServices();
         Harmony.display();
     </script>
