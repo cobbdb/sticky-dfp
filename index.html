@@ -26,7 +26,7 @@
                 [[150, 0], [120, 90]],
                 [[0, 0], [88, 31]]
             ]);
-            Harmony.conf(function () {
+            Harmony.conf.push(function () {
                 var pubads = googletag.pubads();
                 pubads.enableSingleRequest();
             });

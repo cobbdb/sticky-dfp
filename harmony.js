@@ -5,12 +5,9 @@
 var Harmony = (function () {
     var adUnitCode = '/11347122/dev-test';
     var log = '';
-    var config = [];
 
     return {
-        conf: function (cmd) {
-            config.push(cmd);
-        },
+        conf: [],
         log: function (msg) {
             if (!msg) {
                 console.log(log);
@@ -20,8 +17,8 @@ var Harmony = (function () {
         },
         enableServices: function () {
             googletag.cmd.push(function () {
-                Harmony.log('Applying ' + config.length + ' configurations.');
-                config.forEach(function (cmd) {
+                Harmony.log('Applying ' + Harmony.conf.length + ' configurations.');
+                Harmony.conf.forEach(function (cmd) {
                     cmd();
                 });
                 googletag.enableServices();
