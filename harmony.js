@@ -8,7 +8,7 @@ var Harmony = (function () {
     var config = [];
 
     return {
-        setConfig: function (cmd) {
+        conf: function (cmd) {
             config.push(cmd);
         },
         log: function (msg) {
@@ -38,14 +38,17 @@ var Harmony = (function () {
         },
         slot: {},
         slotIDs: [],
-        newSlot: function (id, sizes) {
+        newSlot: function (id, sizes, mapping) {
+            mapping = mapping || [];
             googletag.cmd.push(function () {
                 var slotID = 'div-gpt-ad-' + id;
                 Harmony.slotIDs.push(slotID);
 
                 var slot = googletag.defineSlot(adUnitCode, sizes, slotID);
                 slot.setTargeting('ad_slot', id);
+                slot.defineSizeMapping(mapping);
                 slot.addService(googletag.pubads());
+
                 Harmony.slot[id] = slot;
                 Harmony.log('Created slot: ' + id);
             });
