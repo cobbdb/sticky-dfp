@@ -1,6 +1,7 @@
 body {
     padding-top: 150px;
     text-align: center;
+    height: 10000px;
 }
 .ad {
     border: 1px solid black;
@@ -9,4 +10,9 @@ body {
 .ad div {
     margin: auto;
     text-align: center;
+}
+.stuck {
+    position:fixed;
+    top:0;
+    box-shadow:0 2px 4px rgba(0, 0, 0, .3);
 }
