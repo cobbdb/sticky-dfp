@@ -3,10 +3,6 @@ body {
     text-align: center;
     height: 10000px;
 }
-.ad {
-    border: 1px solid black;
-    margin-top: 5px;
-}
 .ad div {
     margin: auto;
     text-align: center;
