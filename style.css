@@ -9,8 +9,13 @@ body {
 }
 .stuck {
     position: fixed;
-    top: 0;
     width: 99%;
+}
+#div-gpt-ad-MY01.stuck {
+    top: 0;
+}
+#div-gpt-ad-MY02.stuck {
+    bottom: 0;
 }
 p {
     font-size: 21px;
